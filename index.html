@@ -9,15 +9,22 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            overflow: hidden; /* Evita overflow na tela */
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f4f4f4;
         }
         h1 {
+            position: absolute;
+            top: 10%;
+            width: 100%;
             text-align: center;
-            margin-top: 50px;
             color: #333;
         }
         button {
-            display: block;
-            margin: 20px auto;
             padding: 10px 20px;
             font-size: 16px;
             color: #fff;
@@ -26,20 +33,10 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
+            position: absolute;
         }
         button:hover {
             background-color: #0056b3;
-        }
-        .section {
-            height: 600px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #f4f4f4;
-            border-bottom: 1px solid #ccc;
-        }
-        .section:nth-child(even) {
-            background-color: #e4e4e4;
         }
     </style>
 </head>
@@ -47,17 +44,15 @@
     <h1>Me Assine</h1>
     <button onclick="teleport()">Clique Aqui</button>
 
-    <div class="section" id="section1">Seção 1</div>
-    <div class="section" id="section2">Seção 2</div>
-    <div class="section" id="section3">Seção 3</div>
-    <div class="section" id="section4">Seção 4</div>
-    <div class="section" id="section5">Seção 5</div>
-
     <script>
         function teleport() {
-            const sections = document.querySelectorAll('.section');
-            const randomIndex = Math.floor(Math.random() * sections.length);
-            sections[randomIndex].scrollIntoView({ behavior: 'smooth' });
+            const button = document.querySelector('button');
+            const maxX = window.innerWidth - button.offsetWidth;
+            const maxY = window.innerHeight - button.offsetHeight;
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+            button.style.left = `${randomX}px`;
+            button.style.top = `${randomY}px`;
         }
     </script>
 </body>
