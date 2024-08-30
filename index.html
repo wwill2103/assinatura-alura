@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Me Assine</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            color: #333;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .section {
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f4f4f4;
+            border-bottom: 1px solid #ccc;
+        }
+        .section:nth-child(even) {
+            background-color: #e4e4e4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Me Assine</h1>
+    <button onclick="teleport()">Clique Aqui</button>
+
+    <div class="section" id="section1">Seção 1</div>
+    <div class="section" id="section2">Seção 2</div>
+    <div class="section" id="section3">Seção 3</div>
+    <div class="section" id="section4">Seção 4</div>
+    <div class="section" id="section5">Seção 5</div>
+
+    <script>
+        function teleport() {
+            const sections = document.querySelectorAll('.section');
+            const randomIndex = Math.floor(Math.random() * sections.length);
+            sections[randomIndex].scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
